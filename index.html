@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>10³⁶ FLOPS - Computational Infinity</title>
+    <title>AGI Takeoff Scenarios - Computational Analysis</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,7 +15,7 @@
                 <span class="main-number">10<sup>36</sup></span>
                 <span class="flops-label">FLOPS</span>
             </div>
-            <p class="subtitle">One Undecillion Floating Point Operations Per Second</p>
+            <p class="subtitle">AGI Training Requirements & Takeoff Scenarios</p>
             <div class="visual-counter">
                 <span id="counter">0</span>
                 <span class="operations-label">operations visualized</span>
@@ -21,6 +23,79 @@
         </header>
 
         <div class="particles-container" id="particles"></div>
+
+        <section class="scenario-controls">
+            <h2>AGI Takeoff Parameters</h2>
+            <div class="controls-grid">
+                <div class="control-group">
+                    <label>Returns to Hardware</label>
+                    <input type="range" id="returnsHardware" min="1" max="10" step="0.1" value="5.2">
+                    <span class="control-value">5.2</span>
+                </div>
+                <div class="control-group">
+                    <label>Returns to Software</label>
+                    <input type="range" id="returnsSoftware" min="0.5" max="3" step="0.05" value="1.25">
+                    <span class="control-value">1.25</span>
+                </div>
+                <div class="control-group">
+                    <label>Wake-up Growth Rate</label>
+                    <input type="range" id="wakeupGrowth" min="0.1" max="2" step="0.05" value="1.1">
+                    <span class="control-value">1.1</span>
+                </div>
+                <div class="control-group">
+                    <label>Max Training Fraction</label>
+                    <input type="range" id="maxTrainingFraction" min="0.01" max="0.5" step="0.01" value="0.1">
+                    <span class="control-value">0.1</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <div class="chart-container">
+                <h3>Training Compute Over Time</h3>
+                <canvas id="trainingChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Takeoff Scenarios</h3>
+                <canvas id="takeoffChart"></canvas>
+            </div>
+        </section>
+
+        <section class="timeline-section">
+            <h2>AGI Development Timeline</h2>
+            <div class="timeline-container">
+                <div class="timeline-item current">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4>2024: Current State</h4>
+                        <p>Largest training run: ~3×10²⁴ FLOP</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0.0003%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item future">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4 id="agiDate">20XX: AGI Threshold</h4>
+                        <p>Training requirement: 10³⁶ FLOP</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill agi-target" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item superintelligence">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h4 id="superintelligenceDate">20XX: Superintelligence</h4>
+                        <p>Recursive self-improvement begins</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill superintelligence-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section class="comparison-grid">
             <h2>Putting 10³⁶ FLOPS in Perspective</h2>
@@ -62,6 +137,30 @@
             </div>
         </section>
 
+        <section class="risk-analysis">
+            <h2>Takeoff Risk Analysis</h2>
+            <div class="risk-grid">
+                <div class="risk-card slow">
+                    <h3>Slow Takeoff</h3>
+                    <div class="risk-indicator"></div>
+                    <p>Gradual capability increase over decades</p>
+                    <div class="probability" id="slowProb">25%</div>
+                </div>
+                <div class="risk-card moderate">
+                    <h3>Moderate Takeoff</h3>
+                    <div class="risk-indicator"></div>
+                    <p>Significant acceleration over 2-10 years</p>
+                    <div class="probability" id="moderateProb">45%</div>
+                </div>
+                <div class="risk-card fast">
+                    <h3>Fast Takeoff</h3>
+                    <div class="risk-indicator"></div>
+                    <p>Rapid capability explosion within months</p>
+                    <div class="probability" id="fastProb">30%</div>
+                </div>
+            </div>
+        </section>
+
         <section class="facts-section">
             <h2>Mind-Bending Facts</h2>
             <div class="facts-grid">
@@ -86,7 +185,7 @@
         </section>
 
         <div class="interactive-controls">
-            <button id="visualizeBtn" class="glow-btn">Visualize Operations</button>
+            <button id="runSimulation" class="glow-btn">Run Takeoff Simulation</button>
             <button id="resetBtn" class="reset-btn">Reset</button>
         </div>
     </div>
@@ -95,4 +194,3 @@
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
-
