@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10³⁶ FLOPS - Computational Infinity</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="flops-display">
+                <span class="main-number">10<sup>36</sup></span>
+                <span class="flops-label">FLOPS</span>
+            </div>
+            <p class="subtitle">One Undecillion Floating Point Operations Per Second</p>
+            <div class="visual-counter">
+                <span id="counter">0</span>
+                <span class="operations-label">operations visualized</span>
+            </div>
+        </header>
+
+        <div class="particles-container" id="particles"></div>
+
+        <section class="comparison-grid">
+            <h2>Putting 10³⁶ FLOPS in Perspective</h2>
+            
+            <div class="comparison-card">
+                <h3>Human Brain</h3>
+                <div class="comparison-bar">
+                    <div class="bar-fill" style="width: 0.000001%;"></div>
+                </div>
+                <p>~10¹⁶ operations/sec</p>
+                <p class="scale">10²⁰ times smaller</p>
+            </div>
+
+            <div class="comparison-card">
+                <h3>Frontier Supercomputer</h3>
+                <div class="comparison-bar">
+                    <div class="bar-fill" style="width: 0.0001%;"></div>
+                </div>
+                <p>~10¹⁸ FLOPS</p>
+                <p class="scale">10¹⁸ times smaller</p>
+            </div>
+
+            <div class="comparison-card">
+                <h3>All GPUs on Earth</h3>
+                <div class="comparison-bar">
+                    <div class="bar-fill" style="width: 0.001%;"></div>
+                </div>
+                <p>~10²² FLOPS (estimated)</p>
+                <p class="scale">10¹⁴ times smaller</p>
+            </div>
+
+            <div class="comparison-card active">
+                <h3>10³⁶ FLOPS</h3>
+                <div class="comparison-bar">
+                    <div class="bar-fill full" style="width: 100%;"></div>
+                </div>
+                <p>Computational Infinity</p>
+                <p class="scale">Beyond imagination</p>
+            </div>
+        </section>
+
+        <section class="facts-section">
+            <h2>Mind-Bending Facts</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">🌌</div>
+                    <h3>Cosmic Scale</h3>
+                    <p>If each operation was a grain of sand, you'd have more sand than exists in the observable universe</p>
+                </div>
+                
+                <div class="fact-card">
+                    <div class="fact-icon">⚡</div>
+                    <h3>Energy Impossibility</h3>
+                    <p>Would require more energy than all stars in the Milky Way produce in a year</p>
+                </div>
+                
+                <div class="fact-card">
+                    <div class="fact-icon">🕒</div>
+                    <h3>Time Perspective</h3>
+                    <p>If you started counting at 1 operation per second at the Big Bang, you'd still need 10²⁸ more universes to reach this number</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="interactive-controls">
+            <button id="visualizeBtn" class="glow-btn">Visualize Operations</button>
+            <button id="resetBtn" class="reset-btn">Reset</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
